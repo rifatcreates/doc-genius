@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import DashboardPage from "./pages/DashboardPage";
 import HistoryPage from "./pages/HistoryPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import SignupPage from "./pages/SignupPage";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/dashboard" element={<DashboardPage />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route path="*" element={<NotFoundPage />} />
+        <Route path="/signup" element={<SignupPage />} />
       </Routes>
     </BrowserRouter>
   )
