@@ -1,7 +1,15 @@
+import { useAuth } from "@/hooks/useAuth";
+import { supabase } from "@/lib/supabase";
 import { Link, useLocation } from "react-router-dom";
+import { Button } from "./ui/button";
 
 export default function Navbar() {
     const location = useLocation();
+    const { user } = useAuth();
+
+    async function handleLogout() {
+        await supabase.auth.signOut();
+    }
 
     const navLinks = [
         { label: "Dashboard", to: "/dashboard" },
@@ -29,6 +37,16 @@ export default function Navbar() {
                             {link.label}
                         </Link>
                     ))}
+
+                    {user && (
+                        <Button
+                            onClick={handleLogout}
+                            variant="ghost"
+                            className="text-gray-400 hover:text-white text-sm cursor-pointer"     
+                        >
+                            Logout
+                        </Button>
+                    )}
                 </div>
             </div>
         </nav>
