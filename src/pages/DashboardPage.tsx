@@ -3,6 +3,9 @@ import CodeInput from '@/components/CodeInput'
 import OutputDisplay from '@/components/OutputDisplay'
 import { type Language } from '@/types'
 import { generateDocumentation } from '@/lib/gemini'
+import { saveGeneration } from '@/lib/supabase'
+import { toast } from 'sonner'
+import { useAuth } from '@/hooks/useAuth'
 
 export default function DashboardPage() {
   const [code, setCode] = useState('')
@@ -10,6 +13,7 @@ export default function DashboardPage() {
   const [output, setOutput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [error, setError] = useState('')
+  const { user } = useAuth()
 
   async function handleGenerate() {
     if (!code.trim()) return;
@@ -21,6 +25,11 @@ export default function DashboardPage() {
     try {
       const result = await generateDocumentation(code, language);
       setOutput(result);
+
+      if (user) {
+        await saveGeneration(user.id, code, language, result)
+        toast.success("Documentation saved!")
+      }
     } catch (err) {
       if (err instanceof Error) {
         setError(err.message);

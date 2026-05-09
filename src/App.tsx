@@ -7,11 +7,13 @@ import NotFoundPage from "./pages/NotFoundPage";
 import SignupPage from "./pages/SignupPage";
 import LoginPage from "./pages/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
+import { Toaster } from "sonner";
 
 function App() {
   return (
     <BrowserRouter>
       <Navbar />
+      <Toaster richColors position="bottom-right" />
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/dashboard" element={<ProtectedRoute>
