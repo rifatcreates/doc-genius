@@ -1,29 +1,25 @@
-# AI-Enhanced Code Documentation Generator
+# DocGenius — AI Code Documentation Generator
 
-An AI-powered web app that automatically generates documentation for your code. Paste your code, select a language, and get instant function descriptions, parameter explanations, and a ready-to-use README — powered by Google Gemini.
+A web app that generates documentation for your code using Google Gemini AI. Paste your code, select a language, and get instant documentation.
 
 ## Live Demo
 
-🔗 Coming soon after deployment
+🔗 [https://doc-genius-nine.vercel.app](https://doc-genius-nine.vercel.app/)
 
 ## Features
 
-- 🔐 Email/password authentication (Signup & Login)
-- 🤖 AI-generated documentation using Google Gemini API
-- 📋 Supports JavaScript, TypeScript, and Python
-- 💾 Save generation history with Supabase
-- 📖 View and delete past generations
-- 📱 Fully responsive (mobile, tablet, desktop)
-- 📌 One-click copy for generated output
-- 🔔 Toast notifications for actions
+- 🔐 Email/password authentication
+- 🤖 AI-generated documentation using Google Gemini
+- 💾 Save and view generation history
+- 🗑️ Delete past generations
+- 📋 One-click copy for output
+- 📱 Fully responsive
 
 ## Tech Stack
 
-| Category | Technology |
-|---|---|
-| Frontend | React + TypeScript |
-| Styling | Tailwind CSS + Shadcn/ui |
-| AI | Google Gemini API (free tier) |
-| Auth & Database | Supabase (free tier) |
-| Routing | React Router v6 |
-| Deployment | Vercel |
+- React + TypeScript
+- Tailwind CSS + Shadcn/ui
+- Google Gemini API
+- Supabase (Auth + Database)
+- React Router v6
+- Vercel (Deployment)

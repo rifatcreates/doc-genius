@@ -34,6 +34,7 @@ export default function Navbar() {
               >
                 Dashboard
               </Link>
+
               <Link
                 to="/history"
                 className={`rounded-md px-3 py-1.5 text-sm font-medium transition-colors ${
@@ -44,6 +45,7 @@ export default function Navbar() {
               >
                 History
               </Link>
+
               <Button
                 onClick={handleLogout}
                 variant="ghost"
@@ -60,6 +62,7 @@ export default function Navbar() {
               >
                 Login
               </Link>
+              
               <Link
                 to="/signup"
                 className="rounded-md bg-violet-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-violet-700 transition-colors"
