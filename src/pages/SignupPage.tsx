@@ -1,13 +1,22 @@
 import { Button } from "@/components/ui/button"
+import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/lib/supabase";
-import { useState } from "react"
-import { Link } from "react-router-dom"
+import { useEffect, useState } from "react"
+import { Link, useNavigate } from "react-router-dom"
 
 export default function SignupPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
+    const {user} = useAuth();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (user) {
+            navigate("/dashboard")
+        }
+    }, [user, navigate])
 
     async function handleSignup() {
         setLoading(true);

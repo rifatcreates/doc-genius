@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button"
+import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/lib/supabase";
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 
 export default function LoginPage() {
@@ -9,6 +10,13 @@ export default function LoginPage() {
     const [error, setError] = useState("");
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const {user} = useAuth();
+
+    useEffect(() => {
+        if (user) {
+            navigate("/dashboard")
+        }
+    }, [user, navigate])
 
     async function handleLogin() {
         setLoading(true);
